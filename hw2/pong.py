@@ -85,7 +85,7 @@ torch.manual_seed(1)
 policy = Policy()
 policy = policy.to(device)
 policy_optimizer = optim.Adam(policy.parameters(), lr=1e-2)
-discount_rate = 0.95
+discount_rate = 0.99
 
 def main():
     avg_reward = []
@@ -105,7 +105,7 @@ def main():
         avg_reward.append(epi_reward)
         if i_episode % 10 == 0:
             print(epi_reward)
-            
+
     print(avg_reward)
 
     plt.plot(range(len(avg_reward)), avg_reward)
@@ -130,4 +130,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
